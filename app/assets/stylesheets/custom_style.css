@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  padding-left: 10px;
 }
 .msg-form {
   width: 100%;

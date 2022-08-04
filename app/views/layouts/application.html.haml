@@ -10,7 +10,7 @@
     = javascript_importmap_tags
     %style .msg-#{current_user&.id} { background-color: #007bff !important; padding: 10px;}
     %style .cont-#{current_user&.id} { display: flex; justify-content:flex-end;}
-  %body
+  %body.bg-primary
     = render '/layouts/navbar'
     = render '/layouts/flash_notice'
     = yield

@@ -18,7 +18,7 @@
       #selected_room
         %h4.text-center
           = @user&.email || @selected_room.name
-          = turbo_stream_from @selected_room
-          #messages 
-            = render @messages
-          = render "layouts/new_message_form"
+        = turbo_stream_from @selected_room
+        #messages{"data-controller" => "scroll"  } 
+          = render @messages
+        = render "layouts/new_message_form"
