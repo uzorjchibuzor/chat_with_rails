@@ -1,3 +1,8 @@
-.d-flex.p2 
-  %p
-    = link_to user.email, user, class: ""
+- if @selected_room && @selected_room.participant?(@selected_room, user)
+  - is_active = 'active'
+-else
+  - is_active = ''
+%li{class: "list-group-item d-flex align-items-center justify-content-between user_list_item #{is_active}"}
+  %div
+    = link_to image_tag(user.chat_avatar, class:'chat_pfp'), user
+  = link_to user.email, user, class: "ms-2 me-auto username", data: { turbo: "false"}
