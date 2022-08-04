@@ -72,3 +72,7 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
+
+gem "hamlit-rails", "~> 0.2.3"
+gem 'bootstrap', '~> 5.0.2'
+gem "faker", "~> 2.22"

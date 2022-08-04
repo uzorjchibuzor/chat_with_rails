@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title RailsChat
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+    %style .msg-#{current_user&.id} { background-color: #007bff !important; padding: 10px;}
+    %style .cont-#{current_user&.id} { display: flex; justify-content:flex-end;}
+  %body
+    = render '/layouts/navbar'
+    = render '/layouts/flash_notice'
+    = yield
