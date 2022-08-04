@@ -1,0 +1,7 @@
+.container.text-center 
+  - if flash[:notice]
+    .alert.alert-success
+      = flash[:notice]
+  -elsif flash[:error]
+    .alert.alert-danger
+      = flash[:error]

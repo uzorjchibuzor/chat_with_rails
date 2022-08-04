@@ -73,5 +73,6 @@ end
 
 gem "devise", "~> 4.8"
 
-gem "hamlit", "~> 2.16"
+gem "hamlit-rails", "~> 0.2.3"
 gem 'bootstrap', '~> 5.0.2'
+gem "faker", "~> 2.22"
