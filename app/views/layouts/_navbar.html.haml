@@ -4,6 +4,8 @@
     - if current_user   
       %li.nav-item
         = button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger"
+      %li.nav-item
+        = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-secondary"
     - else
       %li.nav-item
         = link_to 'Login', new_user_session_path, class: "btn btn-primary"
