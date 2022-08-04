@@ -72,3 +72,6 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
+
+gem "hamlit", "~> 2.16"
+gem 'bootstrap', '~> 5.0.2'
