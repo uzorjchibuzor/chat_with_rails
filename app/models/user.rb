@@ -12,7 +12,10 @@ class User < ApplicationRecord
   has_many :participants, dependent: :destroy
 
   after_commit :add_default_avatar, on: %i[create update]
-   
+  after_update_commit { broadcast_update }
+
+  enum status: %i[offline away online]
+    
   def avatar_thumbnail
     avatar.variant(resize_to_limit: [150,150]).processed
   end
@@ -25,12 +28,28 @@ class User < ApplicationRecord
     avatar.variant(resize_to_limit: [50,50]).processed
   end
 
-  def username
-    email.split('@').first
+  def status_to_css
+    case status
+    when 'online'
+      'bg-success'
+    when 'away'
+      'bg-warning'
+    when 'offline'
+      'bg-dark'
+    else 
+      'bg-dark'
+    end
   end
 
+  def username
+    email.split('@').first.capitalize
+  end
 
   private
+
+  def broadcast_update
+    broadcast_replace_to 'user_status', user: self
+  end
 
   def add_default_avatar
     return if avatar.attached?

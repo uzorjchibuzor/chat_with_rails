@@ -10,6 +10,11 @@ module RailsChatRoom
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+
+    # if server is restarted all users go back to offline state
+    config.after_initialize do 
+      User.update_all(status: User.statuses[:offline])
+    end
     
 
     # I don't want to use vips

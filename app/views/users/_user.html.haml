@@ -3,6 +3,9 @@
 -else
   - is_active = ''
 %li{class: "list-group-item d-flex align-items-center justify-content-between user_list_item #{is_active}"}
-  %div
+  %div.icon-container
     = link_to image_tag(user.chat_avatar, class:'chat_pfp'), user
+    = turbo_stream_from 'user_status'
+    %div
+      = render 'users/status', user: user
   = link_to user.email, user, class: "ms-2 me-auto username", data: { turbo: "false"}

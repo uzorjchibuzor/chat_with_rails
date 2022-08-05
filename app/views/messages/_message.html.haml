@@ -6,7 +6,6 @@
         %h6.name
           = message.user.username
           %p.time="#{time_ago_in_words(message.created_at)} ago"
-    -# - unless message.room.is_private
-    -#   %h6.name= message.user.email
+    
     = message.body
 

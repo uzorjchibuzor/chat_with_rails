@@ -1,7 +1,12 @@
 #chatroom_container.row.bg-secondary.text-light
   #side_panel.col-md-4.col-sm-4
-    %h5
-      = current_user.email
+    %li.list-group-item.d-flex.align-items-center.justify-content-between.user_list_item
+      %div.icon-container
+        = link_to image_tag(current_user.chat_avatar, class:'chat_pfp'), current_user
+        = turbo_stream_from 'user_status'
+        %div
+          = render 'users/status', user: current_user
+      .ms-2.me-auto.username= current_user.username
     %h4 Users
     = turbo_stream_from "users"
     #users
