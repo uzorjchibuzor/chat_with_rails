@@ -5,4 +5,4 @@
   %p.text-center.text-primary.lead
     = link_to "Chat rooms", rooms_path, class: "btn btn-success"
 
-  = image_tag(current_user.avatar_thumbnail)
+  = image_tag(current_user.avatar_thumbnail) if current_user
